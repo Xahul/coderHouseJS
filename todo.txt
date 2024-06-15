@@ -1,0 +1,5 @@
+- Hacer carrito
+- Hacer filters
+- Hacer Find
+- Renderizacion Dinamica del contenido
+- Guardar datos en local storage
