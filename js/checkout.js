@@ -8,17 +8,17 @@ document.addEventListener("DOMContentLoaded", () => {
             itemDiv.classList.add("w-full", "px-4", "mt-4");
             itemDiv.innerHTML = `
                 <p class="border p-4 rounded-md">
-                    Title: ${item.title}, Descripción: ${item.desc}, Precio: ${item.price}
+                    Título: ${item.product_title}, Descripción: ${item.delivery}, Precio: ${item.product_price}
                 </p>
             `;
             facturaSection.appendChild(itemDiv);
         });
 
         // Calcular el total de la compra
-        const total = purchaseInfo.reduce((acc, item) => acc + parseFloat(item.price.replace('€', '')), 0);
+        const total = purchaseInfo.reduce((acc, item) => acc + parseFloat(item.product_price.replace('$', '')), 0);
         const totalDiv = document.createElement("div");
         totalDiv.classList.add("w-full", "px-4", "mt-4", "font-bold", "text-xl");
-        totalDiv.innerHTML = `Total: ${total.toFixed(2)*(1+0.21)} €`;
+        totalDiv.innerHTML = `Total (con IVA 21%): ${(total * 1.21).toFixed(2)} €`;
         facturaSection.appendChild(totalDiv);
     } else {
         const emptyMessage = document.createElement("p");
@@ -27,3 +27,4 @@ document.addEventListener("DOMContentLoaded", () => {
         facturaSection.appendChild(emptyMessage);
     }
 });
+
